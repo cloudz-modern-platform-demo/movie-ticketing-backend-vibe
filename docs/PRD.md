@@ -54,7 +54,7 @@
 - 저장소: `data/app.db` (SQLite)
 - 테이블(개략):
   - tickets
-    - id(TEXT, PK), theater_name(TEXT), movie_title(TEXT), price_krw(INTEGER), status(TEXT: issued|canceled), issued_at(DATETIME), canceled_at(DATETIME, NULLABLE), memo(TEXT, NULLABLE)
+    - id(TEXT, PK), theater_name(TEXT), movie_title(TEXT), price_krw(INTEGER), status(TEXT: issued|canceled), memo(TEXT, NULLABLE)
 - 제약
   - id는 전역 고유
   - price_krw는 정수(원 단위)
@@ -71,7 +71,6 @@
 - 성능: 단일 인스턴스 기준 초당 수십 RPS 처리(SQLite, 단일 커넥션 풀)
 - 신뢰성: 트랜잭션 기반 쓰기, 실패 시 롤백
 - 보안: PII 저장하지 않음. 서버 내 파일 권한 제한.
-- 감사: 모든 변경에 `issued_at/canceled_at` 기록
 - 멱등성: `Idempotency-Key` 헤더(선택)로 동일 요청 재시 응답 재사용
  - 실행 표준: 콘솔 스크립트(`movie-ticket-backend`)로 애플리케이션을 실행 가능해야 함
 
