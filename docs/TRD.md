@@ -36,9 +36,8 @@
   - movie_title: TEXT
   - price_krw: INTEGER
   - status: TEXT ("issued" | "canceled")
-  - issued_at: DATETIME(UTC)
-  - canceled_at: DATETIME(UTC) | NULL
   - memo: TEXT | NULL
+  - date time은 entity에 넣지마.
 
 ## 5. API 설계
 ### 5.1 발권 API
@@ -98,8 +97,6 @@
        - movie_title: string
        - price_krw: int
        - status: string ("issued" | "canceled")
-       - issued_at: string (ISO 8601)
-       - canceled_at: string | null (ISO 8601)
        - memo: string | null
    - Errors:
      - 404: 티켓이 존재하지 않음
